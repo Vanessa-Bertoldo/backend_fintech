@@ -15,11 +15,11 @@ public class DespesaModel{
 	
 	public DespesaModel(int id, String tipo, double valor, Calendar dataCriacao, int usuarioID) {
 		super();
-		this.id = id;
-		this.tipo = tipo;
-		this.valor = valor;
-		this.dataCriacao = dataCriacao;
-		this.usuarioID = usuarioID;
+		this.id 			= id;
+		this.tipo 			= tipo;
+		this.valor 			= valor;
+		this.dataCriacao 	= dataCriacao;
+		this.usuarioID 		= usuarioID;
 	}
 
 	public int getId() {

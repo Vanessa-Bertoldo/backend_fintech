@@ -17,12 +17,12 @@ public class TransacaoModel {
 	public TransacaoModel(int id, String tipo, double valor, Calendar dataCriacao, Calendar dataVencimento,
 			int usuarioID) {
 		super();
-		this.id = id;
-		this.tipo = tipo;
-		this.valor = valor;
-		this.dataCriacao = dataCriacao;
-		this.dataVencimento = dataVencimento;
-		this.usuarioID = usuarioID;
+		this.id 				= id;
+		this.tipo 				= tipo;
+		this.valor 				= valor;
+		this.dataCriacao 		= dataCriacao;
+		this.dataVencimento 	= dataVencimento;
+		this.usuarioID 			= usuarioID;
 	}
 
 	public int getId() {
