@@ -72,6 +72,12 @@ public class InvestimentoModel {
 	public void setUsuarioID(int usuarioID) {
 		this.usuarioID = usuarioID;
 	}
+
+	@Override
+	public String toString() {
+		return "InvestimentoModel [id=" + id + ", tipo=" + tipo + ", valor=" + valor + ", dataCriacao=" + dataCriacao
+				+ ", dataVencimento=" + dataVencimento + ", usuarioID=" + usuarioID + "]";
+	}
 	
 	
 }

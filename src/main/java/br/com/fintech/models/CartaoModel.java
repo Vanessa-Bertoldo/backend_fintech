@@ -10,13 +10,14 @@ public class CartaoModel {
 	private int numeroCartao;
 	private String tipoCartao;
 	private boolean ativo;
+	private ContaBancariaModel conta;
 	
 	public CartaoModel() {
 		super();
 	}
 	
 	public CartaoModel(String nomeBandeira, Calendar dataValidade, int codigoSeguranca, String nomeImpresso,
-			int numeroCartao, String tipoCartao, boolean ativo) {
+			int numeroCartao, String tipoCartao, boolean ativo, ContaBancariaModel conta) {
 		super();
 		this.nomeBandeira 			= nomeBandeira;
 		this.dataValidade			= dataValidade;
@@ -25,6 +26,7 @@ public class CartaoModel {
 		this.numeroCartao 			= numeroCartao;
 		this.tipoCartao 			= tipoCartao;
 		this.ativo 					= ativo;
+		this.conta 					= conta;
 	}
 
 	public String getNomeBandeira() {
@@ -85,6 +87,21 @@ public class CartaoModel {
 	
 	public boolean verificarValidade() {
 		return ativo;
+	}
+
+	public ContaBancariaModel getConta() {
+		return conta;
+	}
+
+	public void setConta(ContaBancariaModel conta) {
+		this.conta = conta;
+	}
+
+	@Override
+	public String toString() {
+		return "CartaoModel [nomeBandeira=" + nomeBandeira + ", dataValidade=" + dataValidade + ", codigoSeguranca="
+				+ codigoSeguranca + ", nomeImpresso=" + nomeImpresso + ", numeroCartao=" + numeroCartao
+				+ ", tipoCartao=" + tipoCartao + ", ativo=" + ativo + ", conta=" + conta + "]";
 	}
 	
 	

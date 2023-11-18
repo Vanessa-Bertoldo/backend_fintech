@@ -10,13 +10,14 @@ public class EmprestimoModel {
 	private int quantidadeParcela;
 	private int quantidadeParcelaPaga;
 	private Calendar data;
+	private ContaBancariaModel id_usuario;
 	
 	public EmprestimoModel() {
 		super();
 	}
 	
 	public EmprestimoModel(int id, double valor, double tributo, String jurosMensal, int quantidadeParcela,
-			int quantidadeParcelaPaga, Calendar data) {
+			int quantidadeParcelaPaga, Calendar data, ContaBancariaModel id_usuario) {
 		super();
 		this.id 					= id;
 		this.valor 					= valor;
@@ -25,6 +26,7 @@ public class EmprestimoModel {
 		this.quantidadeParcela 		= quantidadeParcela;
 		this.quantidadeParcelaPaga 	= quantidadeParcelaPaga;
 		this.data 					= data;
+		this.id_usuario				= id_usuario;
 	}
 
 	public double getValor() {
@@ -73,6 +75,21 @@ public class EmprestimoModel {
 
 	public void setData(Calendar data) {
 		this.data = data;
+	}
+	
+	public ContaBancariaModel getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(ContaBancariaModel id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "EmprestimoModel [id=" + id + ", valor=" + valor + ", tributo=" + tributo + ", jurosMensal="
+				+ jurosMensal + ", quantidadeParcela=" + quantidadeParcela + ", quantidadeParcelaPaga="
+				+ quantidadeParcelaPaga + ", data=" + data + "]";
 	}
 	
 	

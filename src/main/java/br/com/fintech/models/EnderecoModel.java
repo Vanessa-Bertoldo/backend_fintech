@@ -1,6 +1,7 @@
 package br.com.fintech.models;
 
 public class EnderecoModel {
+	private int id;
 	private String cep;
 	private String rua;
 	private String bairro;
@@ -11,8 +12,9 @@ public class EnderecoModel {
 		super();
 	}
 	
-	public EnderecoModel(String cep, String rua, String bairro, String cidade, String estado) {
+	public EnderecoModel(int id, String cep, String rua, String bairro, String cidade, String estado) {
 		super();
+		this.id = id;
 		this.cep = cep;
 		this.rua = rua;
 		this.bairro = bairro;
@@ -58,6 +60,20 @@ public class EnderecoModel {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "EnderecoModel [id=" + id + ", cep=" + cep + ", rua=" + rua + ", bairro=" + bairro + ", cidade=" + cidade
+				+ ", estado=" + estado + "]";
 	}
 	
 	

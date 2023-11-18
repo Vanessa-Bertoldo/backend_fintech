@@ -14,7 +14,7 @@ public class InvestimentoDAO implements IDAO<InvestimentoModel>{
 	public void create(InvestimentoModel investimento, Connection connection) {
 		PreparedStatement stmt = null;
 		try {
-			String sql = "INSERT INTO investimento(TIPO, VALOR, DATA_CRIACAO, DATA_VENCIMENTO, USUARIO_ID) "
+			String sql = "INSERT INTO TAB_INVESTIMENTO(TIPO, VALOR, DATA_CRIACAO, DATA_VENCIMENTO, USUARIO_ID) "
 					+ "VALUES (?, ?, ?, ?, ?)";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, investimento.getTipo());
@@ -35,7 +35,7 @@ public class InvestimentoDAO implements IDAO<InvestimentoModel>{
 
 	public List<InvestimentoModel> getAll(Connection connection) {
 		List<InvestimentoModel> investimentos = new ArrayList<>();
-        String sql = "SELECT * FROM investimento";
+        String sql = "SELECT * FROM TAB_INVESTIMENTO";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {

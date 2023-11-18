@@ -3,11 +3,12 @@ package br.com.fintech.models;
 import java.util.Calendar;
 
 public class UsuarioModel {
+	private int id;
 	private String nome;
-	private String eail;
+	private String email;
+	private String senha;
 	private String telefone;
 	private String cargo;
-	private String funcao;
 	private Calendar dataNascimento;
 	private double salario;
 	private EnderecoModel endereco;
@@ -17,18 +18,29 @@ public class UsuarioModel {
 		super();
 	}
 	
-	public UsuarioModel(String nome, String eail, String telefone, String cargo, String funcao, Calendar dataNascimento,
-			double salario, EnderecoModel endereco, boolean adm) {
+	public UsuarioModel(int id, String nome, String email, String telefone, String cargo, Calendar dataNascimento,
+			double salario, EnderecoModel endereco, boolean adm, String senha) {
 		super();
+		this.id = id;
 		this.nome = nome;
-		this.eail = eail;
+		this.email = email;
 		this.telefone = telefone;
 		this.cargo = cargo;
-		this.funcao = funcao;
 		this.dataNascimento = dataNascimento;
 		this.salario = salario;
 		this.endereco = endereco;
 		this.adm = adm;
+		this.senha = senha;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -39,12 +51,12 @@ public class UsuarioModel {
 		this.nome = nome;
 	}
 
-	public String getEail() {
-		return eail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEail(String eail) {
-		this.eail = eail;
+	public void setEail(String email) {
+		this.email = email;
 	}
 
 	public String getTelefone() {
@@ -61,14 +73,6 @@ public class UsuarioModel {
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
-	}
-
-	public String getFuncao() {
-		return funcao;
-	}
-
-	public void setFuncao(String funcao) {
-		this.funcao = funcao;
 	}
 
 	public Calendar getDataNascimento() {
@@ -102,5 +106,21 @@ public class UsuarioModel {
 	public void setAdm(boolean adm) {
 		this.adm = adm;
 	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	@Override
+	public String toString() {
+		return "UsuarioModel [nome=" + nome + ", email=" + email + ", senha=" + senha + ", telefone=" + telefone
+				+ ", cargo=" + cargo + ", dataNascimento=" + dataNascimento + ", salario="
+				+ salario + ", endereco=" + endereco + ", adm=" + adm + "]";
+	}
+	
 	
 }

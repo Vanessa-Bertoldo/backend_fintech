@@ -72,6 +72,12 @@ public class TransacaoModel {
 	public void setUsuarioID(int usuarioID) {
 		this.usuarioID = usuarioID;
 	}
+
+	@Override
+	public String toString() {
+		return "TransacaoModel [id=" + id + ", tipo=" + tipo + ", valor=" + valor + ", dataCriacao=" + dataCriacao
+				+ ", dataVencimento=" + dataVencimento + ", usuarioID=" + usuarioID + "]";
+	}
 	
 	
 }

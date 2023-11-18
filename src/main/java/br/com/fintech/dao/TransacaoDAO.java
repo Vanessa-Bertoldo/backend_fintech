@@ -14,7 +14,7 @@ public class TransacaoDAO implements IDAO<TransacaoModel>{
 	public void create(TransacaoModel transacao, Connection connection) {
 		PreparedStatement stmt = null;
 		try {
-			String sql = "INSERT INTO transacao(TIPO, VALOR, DATA_CRIACAO, DATA_VENCIMENTO, USUARIO_ID) "
+			String sql = "INSERT INTO TAB_TRANSACAO(TIPO, VALOR, DATA_CRIACAO, DATA_VENCIMENTO, USUARIO_ID) "
 					+ "VALUES (?, ?, ?, ?, ?)";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, transacao.getTipo());
@@ -35,7 +35,7 @@ public class TransacaoDAO implements IDAO<TransacaoModel>{
 
 	public List<TransacaoModel> getAll(Connection connection) {
 		List<TransacaoModel> transacoes = new ArrayList<>();
-        String sql = "SELECT * FROM transacao";
+        String sql = "SELECT * FROM TAB_TRANSACAO";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {

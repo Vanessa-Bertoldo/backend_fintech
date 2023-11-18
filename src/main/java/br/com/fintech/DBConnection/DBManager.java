@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBManager {
 	private Connection connection;
-	private final String dbUrl = "";
-	private final String dbUser = "";
-	private final String dbPassword = "";
+	private final String dbUrl = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
+	private final String dbUser = "RM552402";
+	private final String dbPassword = "010503";
 	
 	public DBManager() {	
 	}
