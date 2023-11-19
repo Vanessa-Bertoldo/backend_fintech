@@ -61,6 +61,8 @@ public class Despesa extends HttpServlet {
 	    String descricao = request.getParameter("descricao");
         double valor = Double.parseDouble(request.getParameter("valor"));
         String tipo = request.getParameter("tipo");
+        
+        System.out.println(descricao + valor + tipo);
 	    
 		DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 20);
         despesaDAO.create(despesa, connection);
