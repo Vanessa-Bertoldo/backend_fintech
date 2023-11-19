@@ -13,7 +13,7 @@
 </head>
 <body>
 	<main>
-		<form method="post">
+		<form action="Despesa" method="post">
 			<div class="resume">
 				<div>
 					Entradas: R$ <span class="incomes">0.00</span>
@@ -60,7 +60,7 @@
 				<tbody>
 					<c:forEach var="despesa" items="${despesas}">
 						<tr>
-							<td>${despesa.getDescricao()}</td>
+							<td>${despesa.id}</td>
 							<td>${despesa.valor}</td>
 							<td>${despesa.tipo}</td>
 						</tr>

@@ -1,6 +1,8 @@
 package br.com.fintech.servlet;
 
+import java.io.Console;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.Calendar;
 import java.util.List;
@@ -38,13 +40,19 @@ public class Despesa extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+		
         dbManager.openConnection();
     	Connection connection = dbManager.getConnection();
         List<DespesaModel> despesas = despesaDAO.getAll(connection);
-      		
+        for (DespesaModel despesa : despesas) {
+            System.out.println("ID: " + despesa.getId());
+            System.out.println("Descricao: " + despesa.getDescricao());
+            // Adicione mais linhas conforme necessário para exibir outras informações
+
+            System.out.println("------------------------------------");
+        }
 		dbManager.closeConnection();
-		 
+		
 		request.setAttribute("despesas", despesas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Despesa.jsp");
@@ -66,9 +74,12 @@ public class Despesa extends HttpServlet {
 	    
 		DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 20);
         despesaDAO.create(despesa, connection);
-		dbManager.closeConnection();
+        
+		
 
 		doGet(request, response);
+		
+		dbManager.closeConnection();
 	}
 
 }
