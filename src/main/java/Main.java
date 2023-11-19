@@ -86,7 +86,7 @@ public class Main {
         
         //DESPESA
         DespesaDAO despesaDAO = new DespesaDAO();
-        DespesaModel despesa = new DespesaModel(1, "Agiota", 128888, Calendar.getInstance(),"Urgente", 20);
+        DespesaModel despesa = new DespesaModel(2, "Agiota", 128888, Calendar.getInstance(),"Urgente", 18);
         despesaDAO.create(despesa, connection);
         List<DespesaModel> despesas = despesaDAO.getAll(connection);
         System.out.println(despesas.toString());

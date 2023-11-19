@@ -16,7 +16,7 @@ public class DespesaDAO implements IDAO<DespesaModel>{
 		PreparedStatement stmt = null;
 		try {
 			String sql = "INSERT INTO TAB_DESPESA(TIPO, VALOR, DATA_CRIACAO, DESCRICAO, USUARIO_ID) "
-					+ "VALUES(?, ?, ?, ?)";
+					+ "VALUES(?, ?, ?, ?, ?)";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, despesa.getTipo());
 			stmt.setDouble(2, despesa.getValor());
