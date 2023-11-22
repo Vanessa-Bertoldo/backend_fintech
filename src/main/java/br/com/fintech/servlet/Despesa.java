@@ -67,13 +67,11 @@ public class Despesa extends HttpServlet {
 	    Connection connection = dbManager.getConnection();
 	    
 	    String descricao = request.getParameter("descricao");
-        double valor = Double.parseDouble(request.getParameter("valor"));
-        String tipo = request.getParameter("tipo");
-        
-        System.out.println(descricao + valor + tipo);
+	    double valor = Double.parseDouble(request.getParameter("valor"));
+	    String tipo = request.getParameter("tipo");
         
         DespesaDAO despesaDAO = new DespesaDAO();
-        DespesaModel despesa = new DespesaModel(2, "teste", 128888, Calendar.getInstance(),"Urgente", 18);
+        DespesaModel despesa = new DespesaModel(1, "teste", 128888, Calendar.getInstance(),"Urgente", 18);
 	    
 		//DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 20);
         despesaDAO.create(despesa, connection);
@@ -82,7 +80,7 @@ public class Despesa extends HttpServlet {
 
 		doGet(request, response);
 		
-		dbManager.closeConnection();
+		//dbManager.closeConnection();
 	}
 
 }
