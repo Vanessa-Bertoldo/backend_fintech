@@ -13,6 +13,7 @@ import br.com.fintech.models.DespesaModel;
 public class DespesaDAO implements IDAO<DespesaModel>{
 
 	public void create(DespesaModel despesa, Connection connection) {
+		System.out.println("Despesa " + despesa);
 		PreparedStatement stmt = null;
 		try {
 			String sql = "INSERT INTO TAB_DESPESA(TIPO, VALOR, DATA_CRIACAO, DESCRICAO, USUARIO_ID) "
