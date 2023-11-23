@@ -44,14 +44,29 @@ public class Investimento extends HttpServlet {
 
 		Connection connection = dbManager.getConnection();
 		List<DespesaModel> investimento = despesaDAO.getAll(connection);
+		
+		double totEntradas = 0.0, totSaidas = 0.0, total = 0.0;
+		
 		for (DespesaModel despesa : investimento) {
 			System.out.println("ID: " + despesa.getId());
 			System.out.println("Descricao: " + despesa.getDescricao());
+			System.out.println("Tipo " + despesa.getTipo());
+			String tipo = despesa.getTipo();
+			double valor = despesa.getValor();
+			if(tipo.equals("entrada")) {
+				totEntradas += valor;
+			} else {
+				totSaidas += valor;
+			}
+			
 
 			System.out.println("------------------------------------");
 		}
-		dbManager.closeConnection();
+		total = totEntradas + totSaidas;
 
+		request.setAttribute("totEntradas", totEntradas);
+		request.setAttribute("totSaidas", totSaidas);
+		request.setAttribute("total", total);
 		request.setAttribute("investimentos", investimento);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/investimento.jsp");
@@ -72,9 +87,9 @@ public class Investimento extends HttpServlet {
 		String tipo = request.getParameter("tipo");
 
 		DespesaDAO despesaDAO = new DespesaDAO();
-		DespesaModel despesa = new DespesaModel(1, "teste", 128888, Calendar.getInstance(), "Urgente", 18);
+		//DespesaModel despesa = new DespesaModel(1, "teste", 128888, Calendar.getInstance(), "Urgente", 18);
 
-		// DespesaModel despesa = new DespesaModel(1, tipo, valor,
+		DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 18);
 		// Calendar.getInstance(), descricao, 20);
 		despesaDAO.create(despesa, connection);
 
