@@ -27,59 +27,60 @@ public class Investimento extends HttpServlet {
 	DBManager dbManager = new DBManager();
 	DespesaDAO despesaDAO = new DespesaDAO();
 
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Investimento() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Investimento() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-        dbManager.openConnection();
-    	Connection connection = dbManager.getConnection();
-        List<DespesaModel> despesas = despesaDAO.getAll(connection);
-        for (DespesaModel despesa : despesas) {
-            System.out.println("ID: " + despesa.getId());
-            System.out.println("Descricao: " + despesa.getDescricao());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-            System.out.println("------------------------------------");
-        }
+		Connection connection = dbManager.getConnection();
+		List<DespesaModel> investimento = despesaDAO.getAll(connection);
+		for (DespesaModel despesa : investimento) {
+			System.out.println("ID: " + despesa.getId());
+			System.out.println("Descricao: " + despesa.getDescricao());
+
+			System.out.println("------------------------------------");
+		}
 		dbManager.closeConnection();
-		
-		request.setAttribute("despesas", despesas);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Despesa.jsp");
+		request.setAttribute("investimentos", investimento);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/investimento.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		dbManager.openConnection();
-	    Connection connection = dbManager.getConnection();
-	    
-	    String descricao = request.getParameter("descricao");
-	    double valor = Double.parseDouble(request.getParameter("valor"));
-	    String tipo = request.getParameter("tipo");
-        
-        DespesaDAO despesaDAO = new DespesaDAO();
-        DespesaModel despesa = new DespesaModel(1, "teste", 128888, Calendar.getInstance(),"Urgente", 18);
-	    
-		//DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 20);
-        despesaDAO.create(despesa, connection);
-        
-		
+		Connection connection = dbManager.getConnection();
+
+		String descricao = request.getParameter("descricao");
+		double valor = Double.parseDouble(request.getParameter("valor"));
+		String tipo = request.getParameter("tipo");
+
+		DespesaDAO despesaDAO = new DespesaDAO();
+		DespesaModel despesa = new DespesaModel(1, "teste", 128888, Calendar.getInstance(), "Urgente", 18);
+
+		// DespesaModel despesa = new DespesaModel(1, tipo, valor,
+		// Calendar.getInstance(), descricao, 20);
+		despesaDAO.create(despesa, connection);
 
 		doGet(request, response);
-		
-		//dbManager.closeConnection();
+
+		// dbManager.closeConnection();
 	}
 
 }
