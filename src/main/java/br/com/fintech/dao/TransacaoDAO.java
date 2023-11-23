@@ -29,7 +29,7 @@ public class TransacaoDAO implements IDAO<TransacaoModel>{
 			System.out.println("Dados inseridos com sucesso");
 		}
 		catch(Exception e) {
-			System.out.println("Erro ao inserir dados na tabela despesa " + e.getMessage());
+			System.out.println("Erro ao inserir dados na tabela transacao " + e.getMessage());
 		}
 	}
 
