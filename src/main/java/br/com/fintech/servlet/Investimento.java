@@ -48,9 +48,6 @@ public class Investimento extends HttpServlet {
 		double totEntradas = 0.0, totSaidas = 0.0, total = 0.0;
 		
 		for (DespesaModel despesa : investimento) {
-			System.out.println("ID: " + despesa.getId());
-			System.out.println("Descricao: " + despesa.getDescricao());
-			System.out.println("Tipo " + despesa.getTipo());
 			String tipo = despesa.getTipo();
 			double valor = despesa.getValor();
 			if(tipo.equals("entrada")) {
@@ -59,10 +56,8 @@ public class Investimento extends HttpServlet {
 				totSaidas += valor;
 			}
 			
-
-			System.out.println("------------------------------------");
 		}
-		total = totEntradas + totSaidas;
+		total = totEntradas - totSaidas;
 
 		request.setAttribute("totEntradas", totEntradas);
 		request.setAttribute("totSaidas", totSaidas);
@@ -70,6 +65,7 @@ public class Investimento extends HttpServlet {
 		request.setAttribute("investimentos", investimento);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/investimento.jsp");
+		RequestDispatcher dispatcher2 = request.getRequestDispatcher("/admin.jsp");
 		dispatcher.forward(request, response);
 	}
 

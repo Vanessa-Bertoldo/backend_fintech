@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!DOCTYPE html>
     <html lang="en">
     
@@ -45,14 +46,14 @@
         </a>
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Transacao</a>
+           <li class="nav-item">
+            	<a class="nav-link" href="admin.jsp">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Despesas</a>
+            <a class="nav-link" href="transacao.jsp">Transacao</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Investimento</a>
+            <a class="nav-link" href="investimento.jsp">Despesas</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -66,68 +67,7 @@
           <i class="fas fa-shopping-cart"></i>
         </a>
   
-        <!-- Notifications -->
-        <div class="dropdown">
-          <a
-            class="text-reset me-3 dropdown-toggle hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <li>
-              <a class="dropdown-item" href="#">Some news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Another news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </li>
-          </ul>
-        </div>
-        <!-- Avatar -->
-        <div class="dropdown">
-          <a
-            class="dropdown-toggle d-flex align-items-center hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuAvatar"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-              class="rounded-circle"
-              height="25"
-              alt="Black and White Portrait of a Man"
-              loading="lazy"
-            />
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuAvatar"
-          >
-            <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+        
       <!-- Right elements -->
     </div>
     <!-- Container wrapper -->
@@ -158,15 +98,15 @@
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
                       <div class="d-flex justify-content-end text-center py-1">
                         <div>
-                          <p class="mb-1 h5">R$ 15.870,57</p>
+                          <p class="mb-1 h5">R$ ${totEntradas != null ? totEntradas : 0.00}</p>
                           <p class="small text-muted mb-0">Entradas</p>
                         </div>
                         <div class="px-3">
-                          <p class="mb-1 h5">R$ 5.440,23</p>
+                          <p class="mb-1 h5">R$ ${totSaidas != null ? totSaidas : 0.00}</p>
                           <p class="small text-muted mb-0">Saidas</p>
                         </div>
                         <div>
-                          <p class="mb-1 h5">R$ 10.430,34</p>
+                          <p class="mb-1 h5">R$ ${total != null ? total : 0.00}</p>
                           <p class="small text-muted mb-0">Balanco</p>
                         </div>
                       </div>
@@ -204,19 +144,20 @@
     
         <!-- Principal JavaScript do Bootstrap
         ================================================== -->
-        <!-- Foi colocado no final para a página carregar mais rápido -->
+        <!-- Foi colocado no final para a pÃ¡gina carregar mais rÃ¡pido -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
         <script src="../../assets/js/vendor/popper.min.js"></script>
         <script src="../../dist/js/bootstrap.min.js"></script>
+        
     
-        <!-- Ícones -->
+        <!-- Ãcones -->
         <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
         <script>
           feather.replace()
         </script>
     
-        <!-- Gráficos -->
+        <!-- GrÃ¡ficos -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
         <script>
           var ctx = document.getElementById("myChart");
