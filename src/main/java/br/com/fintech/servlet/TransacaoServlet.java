@@ -2,7 +2,6 @@ package br.com.fintech.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -38,19 +37,20 @@ public class TransacaoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Connection connection = dbManager.getConnection();
-
-		String dataVencimento = request.getParameter("dataVencimento");
-		double valor = Double.parseDouble(request.getParameter("valor"));
-		String tipo = request.getParameter("tipo");
-
-		TransacaoModel transacao = new TransacaoModel();
-		transacao.setUsuarioID(20);
-		transacao.setTipo(tipo);
-		transacao.setValor(valor);
-		transacao.setDataCriacao(Calendar.getInstance());
-		transacao.setDataVencimento(Calendar.getInstance());
-		transacaoDAO.create(transacao, connection);
-
+		
+		String nome =  request.getParameter("nome");
+		String sobrenome =request.getParameter("sobrenome");
+		String username =request.getParameter("username");
+		String email =request.getParameter("email");
+		String endereco =request.getParameter("endereco");
+		String pais =request.getParameter("pais");
+		String cep =request.getParameter("cep");
+		String paymentMethod =request.getParameter("paymentMethod");
+		String nomeCartao =request.getParameter("nomeCartao");
+		String cartao =request.getParameter("cartao");
+		String cartaoExpiracao =request.getParameter("cartaoExpiracao");
+		String cartaoCodigo =request.getParameter("cartaoCodigo");
+		
 		doGet(request, response);
 	}
 
