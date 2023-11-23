@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,28 +17,30 @@
 </head>
 <body>
 	<main>
-		<form action="Investimento" method="post">
-			<div class="resume">
-				<div>
-					Entradas: R$ <span class="incomes">0.00</span>
-				</div>
-				<div>
-					Saídas: R$ <span class="expenses">0.00</span>
-				</div>
-				<div>
-					Total: R$ <span class="total">0.00</span>
-				</div>
+		<div class="resume">
+			<div>
+				Entradas: R$ <span class="incomes">${totEntradas != null ? totEntradas : 0.00}</span>
 			</div>
+			<div>
+				Saídas: R$ <span class="expenses">${totSaidas != null ? totSaidas : 0.00}</span>
+			</div>
+			<div>
+				Total: R$ <span class="total">${total != null ? total : 0.00}</span>
+			</div>
+		</div>
+		<form action="Investimento" method="post">
+
 			<div class="newItem">
 				<div class="divDesc">
-					<label for="desc">Descrição</label> <input name="descricao" type="text" id="desc" />
+					<label for="desc">Descrição</label> <input name="descricao"
+						type="text" id="desc" />
 				</div>
 				<div class="divAmount">
-					<label for="amount">Valor</label> <input name="valor" type="number" id="amount" />
+					<label for="amount">Valor</label> <input name="valor" type="number"
+						id="amount" />
 				</div>
 				<div class="divType">
-					<label for="type">Tipo</label> 
-					<select id="type" name="tipo">
+					<label for="type">Tipo</label> <select id="type" name="tipo">
 						<option value="entrada">Entrada</option>
 						<option value="saida">Saída</option>
 					</select>
