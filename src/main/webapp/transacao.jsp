@@ -431,16 +431,13 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                   <h6 class="text-uppercase mb-4 font-weight-bold">Info</h6>
                   <p>
-                    <a class="text-white" href="#">Admin usuario</a>
+                    <a class="text-white" href="admin.jsp">Admin usuario</a>
                   </p>
                   <p>
-                    <a class="text-white" href="#">Transacao</a>
+                    <a class="text-white" href="transacao.jsp">Transacao</a>
                   </p>
                   <p>
-                    <a class="text-white" href="#">Despesas</a>
-                  </p>
-                  <p>
-                    <a class="text-white" href="#">Investimento</a>
+                    <a class="text-white" href="investimento.jsp">Investimento</a>
                   </p>
                 </div>
                 <!-- Grid column -->

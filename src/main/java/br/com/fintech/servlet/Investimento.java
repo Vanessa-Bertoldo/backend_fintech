@@ -85,7 +85,7 @@ public class Investimento extends HttpServlet {
 		DespesaDAO despesaDAO = new DespesaDAO();
 		//DespesaModel despesa = new DespesaModel(1, "teste", 128888, Calendar.getInstance(), "Urgente", 18);
 
-		DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 18);
+		DespesaModel despesa = new DespesaModel(1, tipo, valor, Calendar.getInstance(), descricao, 1);
 		// Calendar.getInstance(), descricao, 20);
 		despesaDAO.create(despesa, connection);
 
